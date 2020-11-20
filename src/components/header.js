@@ -3,10 +3,7 @@ import React,{ Component } from 'react';
 class Header extends Component {
 
     state = {
-        name:'Francis',
-        title:'The keywords are:',
-        keywords:'',
-        count:0
+        keywords:''
     }
     
     inputChangeHandler = (event) => {
@@ -15,12 +12,7 @@ class Header extends Component {
         })
     }
 
-    addOne(){
-        this.setState((state, props )=>({
-            count: state.count + 1
-        }))
-    }
-
+    
     render(){
         return(
             <header>
@@ -28,12 +20,6 @@ class Header extends Component {
                <input
                     onChange={ this.inputChangeHandler }
                />
-                <div>{ this.state.title }</div>
-                <div>{ this.state.keywords }</div>
-
-                <br/>
-                <div>{this.state.count}</div>
-                <button onClick={ ()=> this.addOne() }>Add one</button>
             </header>
         )
     }
