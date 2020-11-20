@@ -8,8 +8,13 @@ class Life extends Component {
         console.log('1-Constructor');
     }
 
-    static getDerivedStateFromProps(){ 
-        console.log('2-getDerivedStateFromProps')
+    static getDerivedStateFromProps(props,state){ 
+        console.log('2-getDerivedStateFromProps');
+        if(state.name === 'Ron'){
+            return {
+                name: 'Milhouse'
+            }
+        }
         return null;
     }
 
@@ -29,11 +34,19 @@ class Life extends Component {
         return true
     }
 
-    componentDidUpdate(prevProps,prevState){
-        console.log('x-componentDidUpdate');
-        console.log(prevState);
-        console.log(this.state)
+    getSnapshotBeforeUpdate(prevProps, prevState){
+        let age = 20;
+        return age;
     }
+
+    componentDidUpdate(prevProps,prevState, snapshot){
+        console.log('x-componentDidUpdate');
+       // console.log(prevState);
+       // console.log(this.state)
+      // console.log(snapshot)
+    }
+
+
 
     render(){
         console.log('3-render')
